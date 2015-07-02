@@ -20,6 +20,5 @@ module.exports = function (fn, time) {
         timeout = null;
       }, time);
     }
-    
   }
 }
