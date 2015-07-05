@@ -1,11 +1,9 @@
 module.exports = throttlePromises;
 
 function throttlePromises(limit, arr) {
-  this.results = {};
-  this.finished = false;
-  this.resultsArry = resultsArry;
+  var results = {};
+  var finished = false;
   var completed = 0;
-  var that = this;
     
   function resultsArry() {
     var output = [];
@@ -18,16 +16,14 @@ function throttlePromises(limit, arr) {
   function make(fn, index) {
     function resolve(value) {
       results[index] = value;
-      completed++;
       if (limit + completed < arr.length) {
         make(arr[limit + completed], limit + completed);
       }
-
+      completed++;
       if (completed >= arr.length - 1) {
-        that.finished = true;
-        if (that.callback) {
-          console.log(resultsArry());
-          that.callback(resultsArry());
+        finished = true;
+        if (callback) {
+          callback(resultsArry());
         }
       }
     }
@@ -35,11 +31,11 @@ function throttlePromises(limit, arr) {
     fn().then(resolve);
   }
 
-  function then(callback) {
-    that.callback = callback;
+  function then(cb) {
+    callback = cb;
 
-    if (that.finished) {
-      callback(that.resultsArry());
+    if (finished) {
+      callback(resultsArry());
     }
   }
 
