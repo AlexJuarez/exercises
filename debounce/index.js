@@ -8,7 +8,7 @@ module.exports = function (fn, interval) {
 
     fnWrapper = function () {
       fn.apply(that, args)
-    }
+    };
 
     if (!waiting) {
       waiting = true;
@@ -19,4 +19,4 @@ module.exports = function (fn, interval) {
     }
   }
 
-}
+};
