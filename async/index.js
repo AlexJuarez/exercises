@@ -3,7 +3,7 @@ function sequence(fns) {
   var counter = 0;
   var fin;
   var error;
-  
+
   function complete() {
     if(fin) {
       if(counter === fns.length) {
@@ -39,7 +39,7 @@ function parallel(fns) {
   var output = new Array(fns.length);
   var completed = 0;
   var externalCallback;
-  var errors = []; 
+  var errors = [];
 
   function complete() {
     if(externalCallback && completed === fns.length) {
