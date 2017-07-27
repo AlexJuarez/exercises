@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Progress Bars</title>
+</head>
+<body>
+<div class="progress-bar">
+  <div class="progress-bar-indicator"></div>
+</div>
+<button class="btn btn-primary" id="add-bar">Add Progress Bar</button>
+</body>
+<style>
+.progress-bar {
+  width: 200px;
+  height: 20px;
+  background: #eee;
+}
+.progress-bar-indicator {
+  width: 0;
+  height: 100%;
+  transition: width 5s;
+  background: red;
+}
+.progress-bar:hover .progress-bar-indicator {
+  width: 100%;
+}
+</style>
+<script>
+document.getElementById("add-bar").addEventListener("mousedown", () => {
+  const bar = document.getElementsByClassName("progress-bar")[0].cloneNode(true);
+  document.body.appendChild(bar);
+});
+</script>
+</html>
